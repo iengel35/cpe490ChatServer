@@ -26,6 +26,8 @@ func main() {
 		
 		fmt.Println(string(msg))
 
+		m.Broadcast(msg)
+
 		stringMsg:= string(msg)
 		stringMsg = strings.ToLower(stringMsg)
 		if(strings.Contains(stringMsg, "hi") || strings.Contains(stringMsg, "hello") || strings.Contains(stringMsg, "hey") || strings.Contains(stringMsg, "howdy")) {
@@ -44,8 +46,11 @@ func main() {
 			welcomeMsg  := []byte("{\"username\":\"Host\",\"content\":\"" + quote.Opt() + "\"}")
 			m.Broadcast(welcomeMsg)
 		}
+		if(strings.Contains(stringMsg, "meaning of life?") ) {
+			welcomeMsg  := []byte("{\"username\":\"Host\",\"content\":\"" + "42" + "\"}")
+			m.Broadcast(welcomeMsg)
+		}
 		
-		m.Broadcast(msg)
 	})
 	
 	r.Run(":5000")
