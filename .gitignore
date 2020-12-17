@@ -1,1 +1,6 @@
 *~
+
+Dockerfile
+go.sum
+main2.go
+upload.go
